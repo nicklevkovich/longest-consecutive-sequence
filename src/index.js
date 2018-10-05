@@ -3,10 +3,10 @@ module.exports = function longestConsecutiveLength(array) {
         length = 0,
         arrL = set.size;
 
-    if (arrL === 0) return (arrL);
+    if (arrL === 0) return 0;
     for (let i = 0; i < arrL; i++) {
-        let left = i - 1,
-            right = i + 1,
+        let left = array[i] - 1,
+            right = array[i] + 1,
             count = 1;
 
         while (set.has(left)) {
@@ -19,7 +19,7 @@ module.exports = function longestConsecutiveLength(array) {
             set.delete(right);
             right++;
         };
-        length = Math.max(count, length);
+        if (count > length) length = count;
     };
 
     return (length);
