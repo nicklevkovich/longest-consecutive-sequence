@@ -19,8 +19,7 @@ module.exports = function longestConsecutiveLength(array) {
             set.delete(right);
             right++;
         };
-        if (count > length) length = count;
+        length = Math.max(length, count);
     };
-
     return (length);
 };
